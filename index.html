@@ -169,13 +169,9 @@
     <div class="forms">
 
         <!-- REVISAR: este script es el de Agus y Belu. Si cada pareja tiene su planilla, pegá acá el de Cin & Juli -->
-        <form name="asistenciaform" method="POST" action="https://script.google.com/macros/s/AKfycbyrGrAstIKbnoG5ZoW6L2D4myXtW9e5iH1MlpdhZCD-ebbatCn6XaYqzqI5Mte9D3PS/exec" class="formulario" id="asistenciaForm">
+         <form name="asistenciaform" method="POST" action="https://script.google.com/macros/s/AKfycbyrGrAstIKbnoG5ZoW6L2D4myXtW9e5iH1MlpdhZCD-ebbatCn6XaYqzqI5Mte9D3PS/exec" class="formulario" id="asistenciaForm">
 
             <label class="formtitle">Sólo faltás vos, ¿venís?</label>
-
-              
-
-</p>
 
             <select name="ASISTENCIA" required>
                 <option value="" disabled selected>¿Asistís?</option>
@@ -186,27 +182,41 @@
             <input type="text" name="NOMBRE" placeholder="Nombre" required />
             <input type="text" name="APELLIDO" placeholder="Apellido" required />
 
-            <select name="DIETA" required>
+            <select name="DIETA" id="dieta" required>
                 <option value="" disabled selected>¿Alguna restricción alimentaria?</option>
                 <option value="Sin restricciones">Sin restricciones</option>
                 <option value="Vegetariano">Vegetariano</option>
                 <option value="Celíaco">Celíaco</option>
+                <option value="Alergias u otros">Alergias u otros</option>
             </select>
- 
+
+            <input type="text" name="DETALLE_DIETA" id="detalleDieta" placeholder="Contanos cuál 🍽️" style="display:none;" />
 
             <textarea name="CANCION" placeholder="Recomendale una canción al DJ 🎶"></textarea>
             <textarea name="MENSAJE" placeholder="Dejale un mensaje a los novios 🤍"></textarea>
 
-            <p data-aos="fade-up">Vamos a tener servicio de combis <br> para que te despreocupes del traslado. </p>
-                      <select name="TRASLADO" required>
-    <option value="" disabled selected>¿Querés recibir info de traslados?</option>
-    <option value="Sí">Sí</option>
-    <option value="No">No</option>
-     
-</select>
+            <p data-aos="fade-up">Vamos a tener servicio de combis <br> para que te despreocupes del traslado.</p>
+            <select name="TRASLADO" required>
+                <option value="" disabled selected>¿Querés recibir info de traslados?</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
             <button type="submit" class="boton2">Enviar</button>
         </form>
 
+        <script>
+          (function () {
+            const dieta = document.getElementById("dieta");
+            const detalle = document.getElementById("detalleDieta");
+            dieta.addEventListener("change", function () {
+              const otro = dieta.value === "Alergias u otros";
+              detalle.style.display = otro ? "" : "none";
+              detalle.required = otro;
+              if (!otro) detalle.value = "";
+            });
+          })();
+        </script>
         <p data-aos="fade-up">Confirmá tu asistencia antes del 23 de diciembre. <br> Recordá completar un formulario por persona.</p>
     </div>
 <main>
@@ -216,8 +226,7 @@
     <br>
     <img  data-aos="fade-up"  src="./figuras/giftcard.png" alt="">
     <h3  data-aos="fade-up"  class="titulo-ceremonia">Mesa de regalos</h3>
-    <p  data-aos="fade-up" >El mejor regalo es que estés con nosotros. <br>
-Pero si querés hacernos un regalo, podés ayudarnos a cumplir nuestra soñada luna de miel ✈️
+    <p  data-aos="fade-up" >Si querés hacernos un regalo, podés ayudarnos a cumplir nuestra soñada luna de miel ✈️
 </p>
 <p>Alias en pesos: BODA.CINYJULI<br> <br> Alias en dólares: BODACINYJULI.USD <br><br>Hace click para copiar los datos.</p>
     <div class="botones">
